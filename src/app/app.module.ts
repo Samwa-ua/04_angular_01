@@ -2,34 +2,27 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 
 import { AppComponent } from './app.component';
-import { CardComponent } from './users/components/card/card.component';
-import { MainTabsComponent } from './users/components/main-tabs/main-tabs.component';
-import { MainTolbarComponent } from './users/components/main-tolbar/main-tolbar.component';
+
+import { UsersModule } from './users/users.module';
+import { MainToolbarComponent } from 'src/app/components/main-toolbar/main-toolbar.component';
+import { MainTabsComponent } from 'src/app/components/main-tabs/main-tabs.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainTolbarComponent,
-    MainTabsComponent,
-    CardComponent,
-  ],
+  declarations: [AppComponent, MainToolbarComponent, MainTabsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatIconModule,
+    UsersModule,
     MatTabsModule,
     MatCardModule,
-    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
