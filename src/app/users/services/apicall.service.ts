@@ -14,6 +14,6 @@ export class ApicallService {
   }
 
   public getJSON(): Observable<IUsers[]> {
-    return this.http.get<IUsers[]>('./assets/MOCK_DATA.json');
+    return this.http.get<IUsers[]>('../assets/MOCK_DATA.json');
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IUsers } from 'src/app/shared/interfaces/Users';
-import { ApicallService } from 'src/app/shared/services/apicall.service';
+import { IUsers } from 'src/app/users/interfaces/Users';
+import { ApicallService } from 'src/app/users/services/apicall.service';
 
 @Component({
   selector: 'app-card',
@@ -8,14 +8,13 @@ import { ApicallService } from 'src/app/shared/services/apicall.service';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-    users: IUsers[] = []
-    
-    
+  users: IUsers[] = [];
+
   constructor(private apiFetchUsers: ApicallService) {}
 
   ngOnInit() {
     this.apiFetchUsers.getJSON().subscribe((data) => {
-      this.users = data
+      this.users = data;
     });
   }
 }
