@@ -1,5 +1,10 @@
+.container {
+  margin: 0 auto;
+}
+
 .user-list-section__container {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  justify-content: center;
   list-style: none;
 }
