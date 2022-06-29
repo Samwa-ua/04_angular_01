@@ -10,7 +10,7 @@ import { ApicallService } from '../../services/apicall.service';
 export class UsersPageComponent implements OnInit {
   users: IUsers[] = [];
   checkedArr: number[] = [];
-  currentStatus: boolean = false;
+  currentStatus!: boolean;
 
   constructor(private apiFetchUsers: ApicallService) {}
 
@@ -37,6 +37,7 @@ export class UsersPageComponent implements OnInit {
   }
 
   onCheck(id: number, checked: boolean) {
+    this.toggleStatus();
     if (checked) {
       {
         this.checkedArr.push(id);
@@ -44,5 +45,15 @@ export class UsersPageComponent implements OnInit {
     } else {
       this.checkedArr = this.checkedArr.filter((el) => el !== id);
     }
+  }
+
+  remove(...id: number[]) {
+    this.users = this.users.filter((user) => !id.includes(user.id));
+    return this.users;
+  }
+
+  onDelete() {
+    this.remove(...this.checkedArr);
+    this.toggleStatus();
   }
 }

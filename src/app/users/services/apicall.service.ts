@@ -8,9 +8,7 @@ import { IUsers } from '../interfaces/Users';
 })
 export class ApicallService {
   constructor(private http: HttpClient) {
-    this.getJSON().subscribe((data) => {
-      console.log(data);
-    });
+    this.getJSON().subscribe((data) => {});
   }
 
   public getJSON(): Observable<IUsers[]> {

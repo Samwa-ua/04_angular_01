@@ -7,9 +7,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ActionsToolbarComponent {
   @Output() selectAll = new EventEmitter<null>();
+  @Output() remove = new EventEmitter();
   @Input() status: boolean = false;
 
   onSelectAll() {
     this.selectAll.emit();
+  }
+  onDelete() {
+    this.remove.emit();
   }
 }
