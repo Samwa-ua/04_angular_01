@@ -1,3 +1,7 @@
 <div class="container">
-    <app-card></app-card>
+    <ul class="user-list-section__container">
+        <li class="user-list-section__card" *ngFor="let user of users">
+            <app-card [users]="user"></app-card>
+        </li>
+    </ul>
 </div>

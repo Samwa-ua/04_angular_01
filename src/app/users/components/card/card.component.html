@@ -1,13 +1,14 @@
-<mat-card *ngFor="let user of users" class="example-card">
+<mat-card class="example-card">
     <mat-card-header>
         <mat-checkbox class="example-margin"></mat-checkbox>
         <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>USER {{user.id}}</mat-card-title>
-        <mat-card-subtitle>{{user.firstname}} {{user.lastname}}</mat-card-subtitle>
+        <mat-card-title>USER {{users.id}}</mat-card-title>
+        <mat-card-subtitle>{{users.firstname}} {{users.lastname}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="../../../../assets/img/avatar_img_{{user.id}}.png" alt="Photo of a Shiba Inu">
+    <img mat-card-image class='card__img' src="../../../../assets/img/avatar_img_{{users.id}}.png"
+        alt="Photo of a Shiba Inu">
     <mat-card-content>
-        <p>{{user.email}}</p>
-        <p>{{user.phone}}</p>
+        <p>{{users.email}}</p>
+        <p>{{users.phone}}</p>
     </mat-card-content>
 </mat-card>

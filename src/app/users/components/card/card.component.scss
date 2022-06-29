@@ -3,6 +3,12 @@
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
   background-size: cover;
+}
+
+.card__img {
+  margin: 0 auto;
+  padding: 10px;
+  width: 130px;
 }
