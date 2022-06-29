@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <button mat-button>Select all</button>
+    <button mat-button (click)="onSelectAll()">Select all</button>
     <button mat-button>Delete</button>
     <button mat-button [matMenuTriggerFor]="menu">Sorting order <span>&#709;</span></button>
     <mat-menu #menu="matMenu">

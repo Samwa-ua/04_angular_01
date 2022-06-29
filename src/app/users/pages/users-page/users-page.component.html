@@ -1,8 +1,9 @@
 <div class="container">
-    <app-actions-toolbar></app-actions-toolbar>
+    <app-actions-toolbar (selectAll)="onSelectAll()"></app-actions-toolbar>
     <ul class="user-list-section__container">
         <li class="user-list-section__card" *ngFor="let user of users">
-            <app-card [users]="user"></app-card>
+            <app-card [users]="user" (check)="onCheck(user.id, $event)" [checked]="checkedArr.includes(user.id)">
+            </app-card>
         </li>
     </ul>
 </div>

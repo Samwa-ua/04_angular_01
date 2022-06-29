@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { UsersPageComponent } from './pages/users-page/users-page.component';
 import { CardComponent } from './components/card/card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -24,6 +25,7 @@ import { ActionsToolbarComponent } from './components/actions-toolbar/actions-to
     MatMenuModule,
     MatInputModule,
     MatButtonModule,
+    FormsModule,
   ],
   exports: [CardComponent, UsersPageComponent],
 })

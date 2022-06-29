@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-actions-toolbar',
   templateUrl: './actions-toolbar.component.html',
-  styleUrls: ['./actions-toolbar.component.scss']
+  styleUrls: ['./actions-toolbar.component.scss'],
 })
-export class ActionsToolbarComponent implements OnInit {
+export class ActionsToolbarComponent {
+  @Output() selectAll = new EventEmitter<null>();
 
-  constructor() { }
-
-  ngOnInit(): void {
+  onSelectAll() {
+    this.selectAll.emit();
   }
-
 }

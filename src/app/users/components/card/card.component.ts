@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { IUsers } from 'src/app/users/interfaces/Users';
 
 @Component({
@@ -8,6 +8,8 @@ import { IUsers } from 'src/app/users/interfaces/Users';
 })
 export class CardComponent {
   @Input() users: IUsers;
+  @Input() checked = false;
+  @Output() check = new EventEmitter<boolean>();
 
   constructor() {
     this.users = {
@@ -17,5 +19,9 @@ export class CardComponent {
       email: '',
       phone: '',
     };
+  }
+
+  onCheck() {
+    this.check.emit(this.checked);
   }
 }

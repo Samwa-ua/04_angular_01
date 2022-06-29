@@ -1,12 +1,12 @@
 <mat-card class="example-card">
     <mat-card-header>
-        <mat-checkbox class="example-margin"></mat-checkbox>
+        <mat-checkbox [(ngModel)]="checked" (change)="onCheck()" class="example-margin"></mat-checkbox>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>USER {{users.id}}</mat-card-title>
         <mat-card-subtitle>{{users.firstname}} {{users.lastname}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image class='card__img' src="../../../../assets/img/avatar_img_{{users.id}}.png"
-        alt="Photo of a Shiba Inu">
+        alt="Photo of avatar img">
     <mat-card-content>
         <p>{{users.email}}</p>
         <p>{{users.phone}}</p>
