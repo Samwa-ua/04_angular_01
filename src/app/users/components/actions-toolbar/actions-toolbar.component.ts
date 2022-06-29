@@ -7,6 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ActionsToolbarComponent {
   @Output() selectAll = new EventEmitter<null>();
+  @Input() status: boolean = false;
 
   onSelectAll() {
     this.selectAll.emit();

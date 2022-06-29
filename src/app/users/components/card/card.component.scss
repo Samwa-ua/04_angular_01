@@ -1,14 +1,14 @@
 .example-card {
-  max-width: 400px;
+  min-width: 250px;
+  min-height: 300px;
 }
 
-.example-header-image {
-  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
-  background-size: cover;
+.example-margin {
+  margin-left: auto;
 }
 
 .card__img {
   margin: 0 auto;
   padding: 10px;
-  width: 130px;
+  width: 150px;
 }

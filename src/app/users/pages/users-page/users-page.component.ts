@@ -10,7 +10,7 @@ import { ApicallService } from '../../services/apicall.service';
 export class UsersPageComponent implements OnInit {
   users: IUsers[] = [];
   checkedArr: number[] = [];
-  selectStatus: boolean = false;
+  currentStatus: boolean = false;
 
   constructor(private apiFetchUsers: ApicallService) {}
 
@@ -22,12 +22,17 @@ export class UsersPageComponent implements OnInit {
   ngOnInit() {
     this.fetchUsers();
   }
+  toggleStatus() {
+    this.currentStatus = !this.currentStatus;
+  }
 
   onSelectAll() {
     if (this.checkedArr.length === this.users.length) {
+      this.toggleStatus();
       this.checkedArr = [];
     } else {
       this.checkedArr = this.users.map((el) => el.id);
+      this.toggleStatus();
     }
   }
 
@@ -36,6 +41,8 @@ export class UsersPageComponent implements OnInit {
       {
         this.checkedArr.push(id);
       }
-    } else this.checkedArr = this.checkedArr.filter((el) => el !== id);
+    } else {
+      this.checkedArr = this.checkedArr.filter((el) => el !== id);
+    }
   }
 }
