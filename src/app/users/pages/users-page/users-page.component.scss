@@ -1,10 +1,15 @@
-.container {
-  margin: 0 auto;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 .user-list-section__container {
+  margin: 40px 60px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 20px;
   list-style: none;
+}
+.user-list-section__card {
+  flex: 1 0 17%;
 }
