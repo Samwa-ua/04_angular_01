@@ -79,4 +79,9 @@ export class UsersPageComponent implements OnInit {
       }
     });
   }
+
+  onAddUser(receivedUser: any) {
+    this.users.push(receivedUser);
+    console.log(receivedUser);
+  }
 }

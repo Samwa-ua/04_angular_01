@@ -2,7 +2,7 @@
     <app-actions-toolbar (selectAll)="onSelectAll()" [status]='currentStatus' (remove)="onDelete()"
         (search)="onSearch($event)" (sort)="onSort($event)">
     </app-actions-toolbar>
-    <app-user-form></app-user-form>
+    <app-user-form (newUser)='onAddUser($event)'></app-user-form>
     <ul class="user-list-section__container">
         <li class="user-list-section__card" *ngFor="let user of users">
             <ng-container *ngIf="searchText === '' || 

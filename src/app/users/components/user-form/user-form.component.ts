@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import {
   AsyncValidator,
   FormArray,
@@ -10,6 +10,7 @@ import {
 import { FormBuilder } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { IEmailValidation } from '../../interfaces/EmailValidation';
+import { IUsers } from '../../interfaces/Users';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -31,6 +32,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./user-form.component.scss'],
 })
 export class UserFormComponent implements OnInit {
+  @Output() newUser = new EventEmitter<any>();
+
   constructor(private fb: FormBuilder) {}
 
   matcher = new MyErrorStateMatcher();
@@ -61,17 +64,17 @@ export class UserFormComponent implements OnInit {
     return promise;
   }
 
-  convertToJSON(): void {
+  convertToJSON() {
     const data = {
       firstName: this.profileForm.value.firstName,
       lastName: this.profileForm.value.lastName,
       email: this.profileForm.value.email,
+      phone: this.profileForm.value.phone,
     };
-
-    console.log(data);
+    return data;
   }
 
   onSubmit() {
-    this.convertToJSON();
+    this.newUser.emit(this.convertToJSON());
   }
 }
