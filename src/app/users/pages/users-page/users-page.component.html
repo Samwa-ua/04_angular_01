@@ -1,0 +1,13 @@
+<div class="container">
+    <app-actions-toolbar (selectAll)="onSelectAll()" [status]='currentStatus' (remove)="onDelete()"
+        (search)="onSearch($event)" (sort)="onSort($event)">
+    </app-actions-toolbar>
+    <ul class="user-list-section__container">
+        <li class="user-list-section__card" *ngFor="let user of users">
+            <ng-container *ngIf="searchText === '' || user.firstname.toLocaleLowerCase().includes(searchText)">
+                <app-card [users]="user" (check)="onCheck(user.id, $event)" [checked]="checkedArr.includes(user.id)">
+                </app-card>
+            </ng-container>
+        </li>
+    </ul>
+</div>
