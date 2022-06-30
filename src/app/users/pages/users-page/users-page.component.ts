@@ -11,6 +11,7 @@ export class UsersPageComponent implements OnInit {
   users: IUsers[] = [];
   checkedArr: number[] = [];
   currentStatus!: boolean;
+  searchText: string = '';
 
   constructor(private apiFetchUsers: ApicallService) {}
 
@@ -55,5 +56,9 @@ export class UsersPageComponent implements OnInit {
   onDelete() {
     this.remove(...this.checkedArr);
     this.toggleStatus();
+  }
+
+  onSearch(searchValue: string) {
+    this.searchText = searchValue;
   }
 }

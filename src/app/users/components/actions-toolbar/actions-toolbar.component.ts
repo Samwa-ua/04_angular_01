@@ -8,6 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ActionsToolbarComponent {
   @Output() selectAll = new EventEmitter<null>();
   @Output() remove = new EventEmitter();
+  @Output() search = new EventEmitter<string>();
+  searchName = '';
   @Input() status: boolean = false;
 
   onSelectAll() {
@@ -15,5 +17,8 @@ export class ActionsToolbarComponent {
   }
   onDelete() {
     this.remove.emit();
+  }
+  onSearch() {
+    this.search.emit(this.searchName);
   }
 }
