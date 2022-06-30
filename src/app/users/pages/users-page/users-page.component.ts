@@ -61,4 +61,6 @@ export class UsersPageComponent implements OnInit {
   onSearch(searchValue: string) {
     this.searchText = searchValue;
   }
+    
+    
 }
