@@ -61,6 +61,22 @@ export class UsersPageComponent implements OnInit {
   onSearch(searchValue: string) {
     this.searchText = searchValue;
   }
-    
-    
+  onSort(ascending: boolean) {
+    this.users.sort((a, b) => {
+      let itemA = a.firstname;
+      let itemB = b.firstname;
+
+      let sortDirection = 1;
+      if (!ascending) {
+        sortDirection = -1;
+      }
+      if (itemA < itemB) {
+        return -1 * sortDirection;
+      } else if (itemA > itemB) {
+        return 1 * sortDirection;
+      } else {
+        return 0 * sortDirection;
+      }
+    });
+  }
 }
