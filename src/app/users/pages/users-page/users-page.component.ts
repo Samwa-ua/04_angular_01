@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IUsers } from '../../interfaces/Users';
+import { IUser } from '../../interfaces/User';
 import { ApicallService } from '../../services/apicall.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { ApicallService } from '../../services/apicall.service';
   styleUrls: ['./users-page.component.scss'],
 })
 export class UsersPageComponent implements OnInit {
-  users: IUsers[] = [];
+  users: IUser[] = [];
   checkedArr: number[] = [];
   currentStatus!: boolean;
   searchText: string = '';
@@ -16,7 +16,7 @@ export class UsersPageComponent implements OnInit {
   constructor(private apiFetchUsers: ApicallService) {}
 
   fetchUsers() {
-    this.apiFetchUsers.getJSON().subscribe((data) => {
+    this.apiFetchUsers.getUsers().subscribe((data) => {
       this.users = data;
     });
   }
@@ -80,8 +80,7 @@ export class UsersPageComponent implements OnInit {
     });
   }
 
-  onAddUser(receivedUser: any) {
+  onAddUser(receivedUser: IUser) {
     this.users.push(receivedUser);
-    console.log(receivedUser);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { IUsers } from 'src/app/users/interfaces/Users';
+import { IUser } from 'src/app/users/interfaces/User';
 
 @Component({
   selector: 'app-card',
@@ -7,7 +7,7 @@ import { IUsers } from 'src/app/users/interfaces/Users';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  @Input() users: IUsers;
+  @Input() users: IUser;
   @Input() checked = false;
   @Output() check = new EventEmitter<boolean>();
 

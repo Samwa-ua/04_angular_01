@@ -8,7 +8,7 @@ import {
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FormBuilder } from '@angular/forms';
 
-import { IUsers } from '../../interfaces/Users';
+import { IUser } from '../../interfaces/User';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -30,7 +30,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./user-form.component.scss'],
 })
 export class UserFormComponent implements OnInit {
-  @Output() newUser = new EventEmitter<any>();
+  @Output() newUser = new EventEmitter<IUser>();
 
   matcher = new MyErrorStateMatcher();
 
@@ -51,10 +51,10 @@ export class UserFormComponent implements OnInit {
   convertToJSON() {
     const data = {
       id: Math.floor(Math.random() * 10 + 10),
-      firstName: this.profileForm.value.firstname,
-      lastName: this.profileForm.value.lastname,
-      email: this.profileForm.value.email,
-      phone: this.profileForm.value.phone,
+      firstname: this.profileForm.value.firstname || '{}',
+      lastname: this.profileForm.value.lastname || '{}',
+      email: this.profileForm.value.email || '{}',
+      phone: this.profileForm.value.phone || '{}',
     };
     return data;
   }
