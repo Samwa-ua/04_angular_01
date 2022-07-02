@@ -1,8 +1,28 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroupDirective,
+  NgForm,
+  Validators,
+} from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { FormBuilder } from '@angular/forms';
 
 import { IUsers } from '../../interfaces/Users';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(
+    control: FormControl | null,
+    form: FormGroupDirective | NgForm | null
+  ): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(
+      control &&
+      control.invalid &&
+      (control.dirty || control.touched || isSubmitted)
+    );
+  }
+}
 
 @Component({
   selector: 'app-user-form',
@@ -11,6 +31,8 @@ import { IUsers } from '../../interfaces/Users';
 })
 export class UserFormComponent implements OnInit {
   @Output() newUser = new EventEmitter<any>();
+
+  matcher = new MyErrorStateMatcher();
 
   constructor(private fb: FormBuilder) {}
 
